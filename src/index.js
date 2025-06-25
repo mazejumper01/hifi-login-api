@@ -14,7 +14,7 @@ const allowedOrigins = [
   'https://hifi-horizon-mmf-1.onrender.com',
   'https://hifi-horizon-mmf-2.onrender.com',
   'http://localhost:5173',
-  'https://hifi-mmf.netlify.app/'
+  'https://hifi-mmf.netlify.app'
 ];
 app.use(cors({
   origin: allowedOrigins,
