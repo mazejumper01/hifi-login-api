@@ -28,21 +28,12 @@ if (!fs.existsSync(USERS_FILE)) {
 }
 
 function loadUsers() {
-  if (fs.existsSync(USERS_FILE)) {
-    const data = fs.readFileSync(USERS_FILE, 'utf-8');
-    console.log('Loaded users:', data); 
-    return JSON.parse(data);
-  }
-  return [];
+  const data = fs.readFileSync(USERS_FILE, 'utf-8');
+  return JSON.parse(data).users || [];
 }
 
 function saveUsers(users) {
-  try {
-    console.log('Saving users:', users); 
-    fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
-  } catch (error) {
-    console.error('Error saving users:', error);
-  }
+  fs.writeFileSync(USERS_FILE, JSON.stringify({ users }, null, 2));
 }
 
 let users = loadUsers();
@@ -58,7 +49,7 @@ app.post('/api/register', async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, saltRounds);
   users.push({ email, password: hashedPassword, fullname, phone, address1, address2, city, zipcode, country });
   saveUsers(users);
-  res.status(201).json({ message: 'User registered' });
+  res.status(201).json({ message: 'User registered', user: { email, fullname } });
 });
 
 app.post('/api/login', async (req, res) => {

@@ -1,4 +1,6 @@
-[
+{
+
+"users": [
   {
     "email": "faadias62@gmail.com",
     "password": "$2b$10$Lv92nIeh0SR8qtWNw5fwdO3mbYjen3H5OCOhIeTOWmNb4rlQkUWc.",
@@ -11,3 +13,5 @@
     "country": "Denmark"
   }
 ]
+
+}

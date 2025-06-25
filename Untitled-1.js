@@ -1,2 +1,2 @@
-const res = await fetch(`http://localhost:3000/api/profile?email=${encodeURIComponent(email)}`);
+const res = await fetch(`https://hifi-login-api.onrender.com/api/profile?email=${encodeURIComponent(email)}`);
 const profile = await res.json();
