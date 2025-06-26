@@ -16,6 +16,7 @@ const allowedOrigins = [
   'https://hifi-horizon-mmf-2.onrender.com',
   'http://localhost:5173',
   'https://hifi-mmf.netlify.app',
+  'https://hifi-horizon-mmf.onrender.com',
 ];
 
 // Middleware
